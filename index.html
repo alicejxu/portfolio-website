@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[Your Name] — Portfolio</title>
+  <!-- Fisherman font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fisherman&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand">
+      <h1>Alice J. Xu</h1>
+      <p class="tagline"> New York, NY & Princeton, NJ </p>
+    </div>
+
+  <!--  <nav class="nav">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+-->
+  </header>
+
+  <main>
+    <section class="hero">
+        <p> Click to view full academic resume. </p>
+      <h2><a class="resume-link" href="resume.html">Academic Resume</a></h2>
+      <p> Summary:  
+        I am a Class of 2028 student at Princeton University, pursuing a major in Electrical & Computer Engineering 
+        with a minor in Entrepreneurship. I am interested in robotics, smart textiles/electronic materials research, 
+       and designing wearable electronics for both fashion and healthcare applications.
+       I am passionate about exploring ways that electrical engineering, technology, and AI 
+       can be incorporated ethically and responsibly into society.
+      </p>      
+    </section>
+
+    <section id="work" class="section">
+      <h3>Projects</h3>
+
+      <div class="grid">
+        <article class="card card--tech" data-title="Technical Projects" data-body="Robots coming soon.">
+          <h4>technical projects</h4>
+        </article>
+
+        <article class="card card--art" data-title="Art & Design" data-body="In the works. Painting/visual arts, photography, graphic design, music.">
+          <h4>art & design</h4>
+        </article>
+
+        <article class="card card--writing" data-title="Writing" data-body="In the works. Personal memoirs, academic papers, technical writing samples.">
+          <h4>writing</h4>
+        </article>
+      </div>
+    </section>
+
+    <!--
+    <section id="about" class="section">
+      <h3>About</h3>
+      <p>
+        [Short bio. Keep it concrete: what you do, tools you use, taste/genres, what you’re open to.]
+      </p>
+    </section>
+    -->
+
+    <section id="contact" class="section">
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:alicexu100@gmail.com">alicexu100@gmail.com</a></p>
+      <p>Academic Email: <a href="mailto:ax0414@princeton.edu">ax0414@princeton.edu</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/alicexuece/">https://www.linkedin.com/in/alicexuece/</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Alice J. Xu</p>
+  </footer>
+
+  <!-- Project modal -->
+  <div id="project-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">×</button>
+      <h2 class="modal-title"></h2>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Project cards -> modal
+    (function () {
+      const modal = document.getElementById('project-modal');
+      const modalTitle = modal.querySelector('.modal-title');
+      const modalBody = modal.querySelector('.modal-body');
+      const closeBtn = modal.querySelector('.modal-close');
+
+      function openModal(title, body) {
+        modalTitle.textContent = title;
+        modalBody.textContent = body;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        modalTitle.textContent = '';
+        modalBody.textContent = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+          const title = card.getAttribute('data-title') || card.querySelector('h4').textContent;
+          const body = card.getAttribute('data-body') || '';
+          openModal(title, body);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    })();
+  </script>
+</body>
+</html>

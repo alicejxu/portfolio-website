@@ -1,0 +1,207 @@
+* { box-sizing: border-box; }
+
+/* Load local Fisherman font files (replace path if folder renamed) */
+@font-face {
+  font-family: 'Fisherman';
+  src: url("fisherman font/Fisherman.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fisherman';
+  src: url("fisherman font/Fisherman-Italic.ttf") format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fisherman';
+  src: url("fisherman font/Fisherman-BookS.ttf") format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Local fashion font for card headings */
+@font-face {
+  font-family: 'Fashion';
+  src: url("fashion font/Fashion.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Try to use locally installed Argent CF for header/title if available */
+@font-face {
+  font-family: 'Argent CF Local';
+  src: local('Argent CF'), local('ArgentCF');
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  padding: 48px 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #034732;
+  color: #F5F9E9;
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+
+.header {
+  max-width: 1000px;
+  margin: 0 auto 56px auto;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #F5F9E9;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.brand { text-align: center; }
+
+/* Header/title font using Argent CF when available */
+.header h1,
+.brand h1,
+.hero-title {
+  font-family: 'Fisherman', 'Argent CF Local', 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+}
+
+h1 { margin: 0; font-size: 4rem; }
+.tagline { margin: 6px 0 0 0; color: #F5F9E9; }
+
+.nav {
+  display: flex;
+  gap: 16px;
+}
+.nav a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+.nav a:hover { border-bottom-color: #111; }
+
+/* Home button on resume page */
+.home-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 14px;
+  border: 1px solid rgba(245,249,233,0.15);
+  color: #F5F9E9;
+  background: rgba(255,255,255,0.03);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.home-btn:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero { margin-bottom: 56px; }
+.hero h2 { margin-top: 0; font-size: 1.6rem; }
+
+.section { margin-bottom: 56px; }
+.section h3 { margin: 0 0 16px 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  border: 1px solid #F5F9E9;
+  padding: 16px;
+  background: #F5F9E9;
+}
+
+/* Themed project cards */
+.card {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #F5F9E9;
+  font-family: 'Fashion', 'Fisherman', Georgia, serif;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 24px;
+}
+.card h4 { margin: 0; font-size: 1.4rem; text-transform: none; }
+.card--tech { background: #FC814A; }
+.card--art { background: #330F0A; }
+.card--writing { background: #7C90A0; }
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 2000;
+  padding: 24px;
+}
+.modal[aria-hidden="false"] { display: flex; }
+.modal-content {
+  background: #fff;
+  color: #111;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.modal-title { font-family: 'Fisherman', Georgia, serif; margin-top: 0; }
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.card h4 { margin: 0 0 10px 0; }
+.meta { color: #F5F9E9; font-size: 0.95rem; }
+
+.link {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid #F5F9E9;
+  padding-bottom: 2px;
+}
+
+/* Embedded PDF styles */
+.pdf-embed {
+  margin-top: 12px;
+}
+.pdf-embed iframe {
+  width: 100%;
+  height: 80vh;
+  border: none;
+  display: block;
+}
+.pdf-embed p { text-align: center; margin-top: 8px; color: #F5F9E9; }
+
+.footer {
+  max-width: 1000px;
+  margin: 60px auto 0 auto;
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
+  color: #F5F9E9;
+}

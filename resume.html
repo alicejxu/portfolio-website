@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academic Resume — Alice J. Xu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <h1>Alice J. Xu</h1>
+      <p class="tagline">Academic Resume</p>
+    </div>
+    <a class="home-btn" href="index.html" aria-label="Back to home">Home</a>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>Academic Resume (PDF) </h2>
+      
+
+    <section class="section">
+      <div class="pdf-embed">
+        <iframe src="Xu_Alice_resume.pdf#view=FitH" title="Academic Resume PDF" frameborder="0" loading="lazy"></iframe>
+        <p>If the PDF doesn't display, <a href="Xu_Alice_resume.pdf" target="_blank" rel="noopener">open/download the resume</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Alice J. Xu</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
